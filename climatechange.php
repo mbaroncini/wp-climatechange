@@ -22,7 +22,14 @@ if ( !function_exists( 'add_action' ) ) {
 define( 'CLIMATECHANGE_VERSION', '5.0.1' );
 define( 'CLIMATECHANGE__MINIMUM_WP_VERSION', '5.0' );
 define( 'CLIMATECHANGE__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'CLIMATECHANGE__PLUGIN_DIR_URL', plugin_dir_url( __FILE__ ) );
 
 
 //register_activation_hook( __FILE__, array( 'Climatechange', 'plugin_activation' ) );
 //register_deactivation_hook( __FILE__, array( 'Climatechange', 'plugin_deactivation' ) );
+
+//LOAD NAMESPACED CLASSES
+require CLIMATECHANGE__PLUGIN_DIR . 'vendor/autoload.php';
+
+//LOAD FUNCTIONS FILES WITH HOOKS
+require CLIMATECHANGE__PLUGIN_DIR . 'src/hooks/loader.php';
