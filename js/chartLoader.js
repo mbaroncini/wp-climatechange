@@ -31,6 +31,9 @@ jQuery(document).ready(function ($) {
       $canvas,
       window.climatechange.chartsConfig[`${type}Config`](jsonData)
     );
+    const $resetZoomButton = $("<button class=\"climatechange-chart-reset-zoom\">Reset zoom</button>");
+    $resetZoomButton.click((evt) => { myChart.resetZoom() });
+    $resetZoomButton.insertAfter($canvas)
   }
 
 

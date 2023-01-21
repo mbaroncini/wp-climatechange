@@ -2,26 +2,31 @@
 window.climatechange.chartsConfig = {};
 
 
-//CHART CONFIG
+//DEFAULT CHART CONFIG
 window.climatechange.defaultDatasetConfig = {
   fill: false,
   // tension: 0.1,
   // borderColor: 'rgb(75, 192, 192)',
   borderWidth: 1,
   pointBorderWidth: 0,
-  pointHoverRadius: 0,
-  pointHoverBackgroundColor: "rgba(75,192,192,1)",
-  pointHoverBorderColor: "rgba(220,220,220,1)",
+  pointHoverRadius: 10,
+  //pointHoverBackgroundColor: "rgba(75,192,192,1)",
+  //pointHoverBorderColor: "rgba(220,220,220,1)",
   pointHoverBorderWidth: 0,
   pointRadius: 0,
   pointHitRadius: 0,
 }
+
+//DEFAULT CHARTJS ZOOM PLUGIN CONFIG
 window.climatechange.defaultZoomConfig = {
   zoom: {
     wheel: {
       enabled: true,
     },
     pinch: {
+      enabled: true
+    },
+    drag: {
       enabled: true
     },
     mode: 'xy',
@@ -58,13 +63,15 @@ window.climatechange.chartsConfig.co2Config = (jsonData) => {
         ...window.climatechange.defaultDatasetConfig,
         label: 'Trend',
         data: trends,
-        borderColor: 'black',
+        backgroundColor: 'black',
+        borderColor: 'black'
       },
       {
         ...window.climatechange.defaultDatasetConfig,
         label: 'Cycle',
         data: cycles,
-        borderColor: 'red',
+        backgroundColor: 'red',
+        borderColor: 'red'
       }
     ]
   }
@@ -133,7 +140,8 @@ window.climatechange.chartsConfig.temperatureConfig = (jsonData) => {
         ...window.climatechange.defaultDatasetConfig,
         label: 'Temperature',
         data: temperature,
-        borderColor: 'red',
+        backgroundColor: 'red',
+        borderColor: 'red'
       }
     ]
   }

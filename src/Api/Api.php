@@ -53,7 +53,8 @@ class Api
     $cache = $this->requestCache($url);
     $cachedValue = $cache->get();
     if (empty($cachedValue)) {
-      $this->info("$url data is not cached, getting data remotely");
+      $this->info("$url data is NOT CACHED, getting data remotely");
+
       $response = wp_remote_get($url, $getArgs);
       $check = $this->checkResponse($response);
       if ($check !== FALSE) {
@@ -65,7 +66,7 @@ class Api
         return new WP_Error('climatechange_api_get', "Bad GET response from $url");
       }
     } else {
-      $this->info("$url data is cached");
+      $this->info("$url data IS CACHED");
     }
 
 

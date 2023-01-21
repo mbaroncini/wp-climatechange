@@ -62,6 +62,14 @@ abstract class AbstractLogger implements LoggerInterface
   }
 
 
+  protected function getSuffix()
+  {
+    $callers = debug_backtrace();
+    $mainCaller = isset($callers[2]['function']) && $callers[2]['function'] == 'log' ? $callers[2] : $callers[1];
+    return ' in function "' .  $mainCaller['function'] . '" called from "' .  $mainCaller['file'] . '" on line ' .  $mainCaller['line'] . "\n error handler";
+  }
+
+
   abstract public function info($message);
   abstract public function warning($message);
   abstract public function error($message);

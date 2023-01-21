@@ -50,11 +50,7 @@ class Transient
    */
   protected function getLifeSpan()
   {
-    if (apply_filters('climatechange_transient_disableCache', false)) {
-      return 1;
-    } else {
-      return $this->lifespan;
-    }
+    return $this->lifespan;
   }
 
   /**
@@ -65,7 +61,6 @@ class Transient
    */
   public function setLifeSpan($seconds)
   {
-
     $this->lifespan = absint($seconds);
     return true;
   }
@@ -77,6 +72,10 @@ class Transient
    */
   public function get()
   {
+    if ($this->isCacheDisabled()) {
+      $this->delete(); //enforce cache delete on value get
+    }
+
     return get_transient($this->getKey());
   }
 
@@ -98,6 +97,10 @@ class Transient
    */
   public function set($value)
   {
+    if ($this->isCacheDisabled()) {
+      return false; //don't store transient if cache is disabled
+    }
+
     return set_transient($this->getKey(), $value, $this->getLifeSpan());
   }
 
@@ -111,5 +114,11 @@ class Transient
   {
     $expires = (int) get_option('_transient_timeout_' . $this->getKey(), 0);
     return $expires - time();
+  }
+
+
+  protected function isCacheDisabled()
+  {
+    return apply_filters('climatechange_transient_disableCache', false);
   }
 }
