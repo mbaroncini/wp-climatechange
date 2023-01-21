@@ -18,6 +18,12 @@ function climatechange_charts_api()
     case 'temperature':
       $data = $api->getTemperature();
       break;
+    case 'methane':
+      $data = $api->getMethane();
+      break;
+    case 'oceanwarming':
+      $data = $api->getOceanWarming();
+      break;
     default:
       $data = $api->getCo2();
       break;

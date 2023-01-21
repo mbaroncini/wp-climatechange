@@ -26,8 +26,5 @@ define('CLIMATECHANGE__PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('CLIMATECHANGE__PLUGIN_DIR_URL', plugin_dir_url(__FILE__));
 
 
-//LOAD NAMESPACED CLASSES
-require_once CLIMATECHANGE__PLUGIN_DIR . 'vendor/autoload.php';
-
-//LOAD FUNCTIONS FILES WITH HOOKS
-require CLIMATECHANGE__PLUGIN_DIR . 'includes/loader.php';
+//LOAD COMPOSER AUTOLOAD AND SINGLE FILES WITH HOOKS
+require CLIMATECHANGE__PLUGIN_DIR . 'src/loader.php';

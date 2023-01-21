@@ -31,8 +31,12 @@ function climatechange_register_assets()
   //charts configs
   wp_register_script('climatechange-charts', CLIMATECHANGE__PLUGIN_DIR_URL . 'js/charts.js', [], '1.0.0', true);
   //charts window var
+
+
+  wp_register_script('climatechange-chart-loader2', CLIMATECHANGE__PLUGIN_DIR_URL . 'dist/main.js', [], '1.0.0', true);
+
   wp_localize_script(
-    'climatechange-charts',
+    'climatechange-chart-loader2',
     'climatechange',
     [
       'ajaxurl' => admin_url('admin-ajax.php')

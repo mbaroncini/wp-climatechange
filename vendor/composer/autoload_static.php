@@ -16,7 +16,7 @@ class ComposerStaticInitfcbd6ccc30ed95bf079f3dbaf307ea16
     public static $prefixDirsPsr4 = array (
         'Cyberway_Climatechange\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/src/autoload',
         ),
     );
 

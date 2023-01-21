@@ -12,7 +12,7 @@ class Api_GlobalWarming extends Api
   {
 
     $url = 'https://global-warming.org/api/co2-api';
-
+    $data = [];
     $response = $this->get($url);
     if (isset($response['body'])) {
       $formatted = json_decode($response['body'], true)['co2'] ?? [];
@@ -44,24 +44,60 @@ class Api_GlobalWarming extends Api
   {
 
     $url = 'https://global-warming.org/api/temperature-api';
+    $data = [];
 
     $response = $this->get($url);
     if (isset($response['body'])) {
       $formatted = json_decode($response['body'], true)['result'] ?? [];
       foreach ($formatted as $obs) {
-
-        $time = $obs['time'];
-        $station = $obs['station'];
-        //$land = $obs['land'];
-        /**
-         *
-         * 'date' => DateTime,
-         * 'temperature' => value,
-         *
-         */
         $data[] = [
-          'date' => $this->formatTemperatureTime($time),
-          'temperature' => $station,
+          'date' => $this->formatTemperatureTime($obs['time']),
+          'temperature' => $obs['station'],
+        ];
+      }
+    }
+
+    return $data;
+  }
+
+  public function getMethane()
+  {
+
+    $url = 'https://global-warming.org/api/methane-api';
+    $data = [];
+    $response = $this->get($url);
+    if (isset($response['body'])) {
+      $formatted = json_decode($response['body'], true)['methane'] ?? [];
+      foreach ($formatted as $obs) {
+
+        $date = DateTime::createFromFormat('Y.m', $obs['date']);
+        if ($date === false)
+          continue;
+
+        $data[] = [
+          'date' => $date,
+          'trend' => $obs['trend'],
+          'average' => $obs['average']
+        ];
+      }
+    }
+
+    return $data;
+  }
+
+
+  public function getOceanWarming()
+  {
+
+    $url = 'https://global-warming.org/api/ocean-warming-api';
+    $data = [];
+    $response = $this->get($url);
+    if (isset($response['body'])) {
+      $formatted = json_decode($response['body'], true)['result'] ?? [];
+      foreach ($formatted as $year => $temperature) {
+        $data[] = [
+          'year' => $year,
+          'temperature' => $temperature
         ];
       }
     }

@@ -11,14 +11,11 @@ function climatechange_shortcode_chart($atts)
     ), $atts, 'climatechange-chart')
   );
 
-
   $class = 'climatechange-chart';
   $id = $class . '-' . strval(rand());
 
-  $test = "<pre>" . print_r($type, true) . "</pre>";
+  //wp_enqueue_script('climatechange-chart-loader');
+  wp_enqueue_script('climatechange-chart-loader2');
 
-
-  wp_enqueue_script('climatechange-chart-loader');
-
-  return "$test<div><canvas id=\"$id\" class=\"$class\" data-type=\"$type\"></canvas></div>";
+  return "<div class=\"$class-wrapper\"><canvas id=\"$id\" class=\"$class\" data-type=\"$type\"></canvas></div>";
 }
