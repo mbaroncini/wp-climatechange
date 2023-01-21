@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Cyberway\\Climatechange\\' => array($baseDir . '/src'),
+    'Cyberway_Climatechange\\' => array($baseDir . '/src'),
 );

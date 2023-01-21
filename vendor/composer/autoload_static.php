@@ -9,12 +9,12 @@ class ComposerStaticInitfcbd6ccc30ed95bf079f3dbaf307ea16
     public static $prefixLengthsPsr4 = array (
         'C' => 
         array (
-            'Cyberway\\Climatechange\\' => 23,
+            'Cyberway_Climatechange\\' => 23,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Cyberway\\Climatechange\\' => 
+        'Cyberway_Climatechange\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
