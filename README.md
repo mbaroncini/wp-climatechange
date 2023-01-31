@@ -40,6 +40,12 @@ Use the apply_filters function to set a transient value to false. This will disa
 apply_filters('greencharts_transient_disableCache', false);
 ```
 
+Use the apply_filters function to set the lifespan of transient. The filter can be used to modify the lifespan of the transient before it is set. The transient is used to cache remote API requests, default transient is 1 month. The lifespan should be the number of seconds, see [$expiration](https://developer.wordpress.org/reference/functions/set_transient/#parameters) parameter of wordpress `set_transient` function
+
+```php
+apply_filters('greencharts_transient_lifespan', $this->lifespan, $this);
+```
+
 Use the apply_filters function to set a logger value to true. This will enable logging for the greencharts data.
 
 ```php

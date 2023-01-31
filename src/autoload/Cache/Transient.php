@@ -50,7 +50,7 @@ class Transient
    */
   protected function getLifeSpan()
   {
-    return $this->lifespan;
+    return apply_filters('greencharts_transient_lifespan', $this->lifespan, $this);
   }
 
   /**
