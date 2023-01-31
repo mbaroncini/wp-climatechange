@@ -1,5 +1,5 @@
 {
-  "name": "climatechange",
+  "name": "wp-climatechange",
   "version": "1.0.0",
   "description": "### Filters",
   "main": "js/index.js",

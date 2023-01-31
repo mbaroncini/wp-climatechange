@@ -1,5 +1,5 @@
 {
-    "name": "cyberway/climatechange",
+    "name": "cyberway/wp-climatechange",
     "type": "project",
     "autoload": {
         "psr-4": {
