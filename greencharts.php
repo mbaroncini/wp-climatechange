@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @package ClimateChange
+ * @package GreenCharts
  */
 /*
-Plugin Name: ClimateChange data
+Plugin Name: Wp greencharts
 Description: Display https://global-warming.org/ data
 Version: 0.1.0
 Requires at least: 5.0
@@ -20,11 +20,11 @@ if (!function_exists('add_action')) {
 	exit;
 }
 
-define('CLIMATECHANGE__VERSION', '1.0.0');
-define('CLIMATECHANGE__MINIMUM_WP_VERSION', '5.0');
-define('CLIMATECHANGE__PLUGIN_DIR', plugin_dir_path(__FILE__));
-define('CLIMATECHANGE__PLUGIN_DIR_URL', plugin_dir_url(__FILE__));
+define('GREENCHARTS__VERSION', '1.0.0');
+define('GREENCHARTS__MINIMUM_WP_VERSION', '5.0');
+define('GREENCHARTS__PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('GREENCHARTS__PLUGIN_DIR_URL', plugin_dir_url(__FILE__));
 
 
 //LOAD COMPOSER AUTOLOAD AND SINGLE FILES WITH HOOKS
-require CLIMATECHANGE__PLUGIN_DIR . 'src/loader.php';
+require GREENCHARTS__PLUGIN_DIR . 'src/loader.php';

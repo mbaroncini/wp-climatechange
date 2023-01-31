@@ -1,7 +1,7 @@
 <?php
 
 //LOAD NAMESPACED CLASSES (src/autoload dir)
-require_once CLIMATECHANGE__PLUGIN_DIR . 'vendor/autoload.php';
+require_once GREENCHARTS__PLUGIN_DIR . 'vendor/autoload.php';
 
 //LOAD FUNCTIONS FILES WITH HOOKS (src/includes dir)
 require_once 'includes/functions.php';

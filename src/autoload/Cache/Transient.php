@@ -39,7 +39,7 @@ class Transient
    */
   protected function getKey()
   {
-    return $this->key . '_' . __CLASS__ . '_' . CLIMATECHANGE__VERSION;
+    return $this->key . '_' . __CLASS__ . '_' . GREENCHARTS__VERSION;
   }
 
   /**

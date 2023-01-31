@@ -8,7 +8,7 @@ add_action('wp_enqueue_scripts', 'greencharts_register_assets');
 function greencharts_register_assets()
 {
   //enqueued in shortcode
-  wp_register_script('greencharts-chart-loader', CLIMATECHANGE__PLUGIN_DIR_URL . 'dist/main.js', ['wp-hooks'], '1.0.0', true);
+  wp_register_script('greencharts-chart-loader', GREENCHARTS__PLUGIN_DIR_URL . 'dist/main.js', ['wp-hooks'], '1.0.0', true);
 
   wp_localize_script(
     'greencharts-chart-loader',
