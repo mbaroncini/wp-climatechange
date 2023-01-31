@@ -1,13 +1,39 @@
-# Wordpress Greencharts
+=== Wordpress Greencharts ===
+Contributors: mbaroncini
+Tags: chartjs, charts, green
+Requires at least: 4.7
+Tested up to: 6.1.1
+Stable tag: 1
+Requires PHP: 7.0
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+Another WordPress plugin with charts but with love for the earth in mind
+
+== Description ==
 
 This Wordpress plugin allows you to easily add interactive charts to your website, using data from the global-warming.org API and the ChartJs library. The plugin has built-in mechanisms such as server cache, lazy load and client cache, which work together to reduce the CO2 emissions caused by internet/hardware usage per chart view.
 
-## Installation
+== Screenshots ==
+
+1. The button viewed before chart load
+2. The zoomed CO2 chart
+3. The entire CO2 chart
+4. The ocean warming chart
+5. The methane levels chart
+6. The temperature chart
+
+== Changelog ==
+
+= 0.1 =
+The first beta version
+
+== Installation ==
 
 - Download the plugin from the Wordpress plugin repository.
 - Upload the plugin to your website and activate it.
 
-## Usage
+== Usage ==
 
 Once the plugin is installed and configured, you can add chart shortcodes to your pages and posts. The available shortcodes are:
 
@@ -18,21 +44,21 @@ Once the plugin is installed and configured, you can add chart shortcodes to you
 
 You can customize the appearance of the charts using the ChartJs library's options and callbacks using wordpress js hooks. Visit [ChartJs documentation](https://www.chartjs.org/docs/latest/) for more information.
 
-## Support
+== Support ==
 
 If you have any issues with the plugin, please open a Github issue or contact us via email. We will do our best to assist you.
 
-## Contribution
+== Contribution ==
 
 If you would like to contribute to the development of this plugin, please fork the repository and submit a pull request.
 
-## Disclaimer
+== Disclaimer ==
 
 This plugin is provided "as is" without warranty of any kind, either express or implied. Global warming.org and ChartJs library do not endorse this plugin and are not responsible for any damages or losses that may result from its use.
 
-## Plugin hooks
+== Plugin hooks ==
 
-### php [docs](https://developer.wordpress.org/plugins/hooks/)
+= php [docs](https://developer.wordpress.org/plugins/hooks/)
 
 Use the apply_filters function to set a transient value to false. This will disable caching for the greencharts data.
 
@@ -64,7 +90,7 @@ Uses the apply_filters function to alter ajax resposes data used by charts. Usef
 apply_filters('greencharts_ajax_chartsApi',$charts->getChartsDataByType($type), $type);
 ```
 
-### js [docs](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-hooks/)
+= js [docs](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-hooks/)
 
 Remember to use `wp.hooks.addFilter` BEFORE greencharts js load.
 
