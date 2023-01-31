@@ -13,12 +13,12 @@ export const loadChart = (canvas: HTMLCanvasElement) => {
 
   const chartType: string = canvas.dataset.type;
   const loadChartButton = document.createElement('div');
-  loadChartButton.classList.add('climatechange-button')
-  const loadButtonText: any = options.globalHooks.applyFilters('climatechange_js_loadButtonText', 'Load chart', canvas)
+  loadChartButton.classList.add('greencharts-button')
+  const loadButtonText: any = options.globalHooks.applyFilters('greencharts_js_loadButtonText', 'Load chart', canvas)
   loadChartButton.innerText = loadButtonText;
   const resetZoomButton = document.createElement('div');
-  resetZoomButton.classList.add('climatechange-chart-reset-zoom', 'climatechange-button')
-  const resetButtonText: any = options.globalHooks.applyFilters('climatechange_js_resetZoomButtonText', 'Reset zoom', canvas)
+  resetZoomButton.classList.add('greencharts-chart-reset-zoom', 'greencharts-button')
+  const resetButtonText: any = options.globalHooks.applyFilters('greencharts_js_resetZoomButtonText', 'Reset zoom', canvas)
   resetZoomButton.innerText = resetButtonText
 
   canvas.parentElement.append(loadChartButton)
@@ -47,13 +47,13 @@ export const loadChart = (canvas: HTMLCanvasElement) => {
     //loadChartButton.innerText = 'Re-load';
 
     if (typeof error == 'object') {
-      const errorMessage: any = options.globalHooks.applyFilters('climatechange_js_errorMessage', "Something goes wrong during chart loading. Please retry later", data, error)
+      const errorMessage: any = options.globalHooks.applyFilters('greencharts_js_errorMessage', "Something goes wrong during chart loading. Please retry later", data, error)
       canvas.parentElement.innerHTML = errorMessage
     }
     else {
       let chartConfig: any = chartsConfig[`${chartType}Config` as keyof typeof chartsConfig](data)
 
-      chartConfig = options.globalHooks.applyFilters('climatechange_js_chartConfig', chartConfig, canvas)
+      chartConfig = options.globalHooks.applyFilters('greencharts_js_chartConfig', chartConfig, canvas)
 
       log('COMPUTED CHART CONFIG:', chartConfig)
 
@@ -67,8 +67,8 @@ export const loadChart = (canvas: HTMLCanvasElement) => {
 
       canvas.parentElement.append(resetZoomButton)
 
-      log('APPEND CREATED CHART ON WINDOW OBJECT, TRY ON CONSOLE: "window.climatechange.charts"')
-      window.climatechange.charts.push(myChart)
+      log('APPEND CREATED CHART ON WINDOW OBJECT, TRY ON CONSOLE: "window.greencharts.charts"')
+      window.greencharts.charts.push(myChart)
     }
 
 

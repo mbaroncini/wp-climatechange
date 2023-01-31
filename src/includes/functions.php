@@ -1,8 +1,8 @@
 <?php
 
-use Cyberway_Climatechange\Logger\PhpLogger;
+use Cyberway_Greencharts\Logger\PhpLogger;
 
-function climatechange_logger()
+function greencharts_logger()
 {
-  return apply_filters('climatechange_logger', new PhpLogger);
+  return apply_filters('greencharts_logger', new PhpLogger);
 }

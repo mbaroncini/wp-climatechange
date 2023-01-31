@@ -1,8 +1,8 @@
 <?php
 
-namespace Cyberway_Climatechange;
+namespace Cyberway_Greencharts;
 
-use Cyberway_Climatechange\Api\Api_GlobalWarming;
+use Cyberway_Greencharts\Api\Api_GlobalWarming;
 
 
 class Chart

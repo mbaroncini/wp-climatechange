@@ -5,7 +5,7 @@ export { };
 
 declare global {
   interface Window {
-    climatechange: {
+    greencharts: {
       ajaxurl: string,
       chartsConfig: [],
       charts: [Chart],

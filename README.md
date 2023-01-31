@@ -1,4 +1,4 @@
-# Climate Change Charts
+# Wordpress greencharts
 
 This Wordpress plugin allows you to easily add interactive chart shortcodes to your website, using data from the global-warming.org API and the ChartJs library. The plugin has built-in mechanisms such as server cache, lazy load and client cache, which work together to reduce the CO2 emissions caused by internet/hardware usage per chart view.
 
@@ -11,10 +11,10 @@ This Wordpress plugin allows you to easily add interactive chart shortcodes to y
 
 Once the plugin is installed and configured, you can add chart shortcodes to your pages and posts. The available shortcodes are:
 
-`[climatechange-chart type="temperature"]`: Displays a line chart of global temperature change over time.
-`[climatechange-chart type="co2"]`: Displays a line chart of CO2 emissions by country.
-`[climatechange-chart type="methane"]`: Displays a line chart of global methane gas emissions.
-`[climatechange-chart type="oceanwarming"]`: Displays a line chart of global ocean warming.
+`[greencharts-chart type="temperature"]`: Displays a line chart of global temperature change over time.
+`[greencharts-chart type="co2"]`: Displays a line chart of CO2 emissions by country.
+`[greencharts-chart type="methane"]`: Displays a line chart of global methane gas emissions.
+`[greencharts-chart type="oceanwarming"]`: Displays a line chart of global ocean warming.
 
 You can customize the appearance of the charts using the ChartJs library's options and callbacks using wordpress js hooks. Visit [ChartJs documentation](https://www.chartjs.org/docs/latest/) for more information.
 
@@ -34,41 +34,41 @@ This plugin is provided "as is" without warranty of any kind, either express or 
 
 ### php [docs](https://developer.wordpress.org/plugins/hooks/)
 
-Use the apply_filters function to set a transient value to false. This will disable caching for the climatechange data.
+Use the apply_filters function to set a transient value to false. This will disable caching for the greencharts data.
 
 ```php
-apply_filters('climatechange_transient_disableCache', false);
+apply_filters('greencharts_transient_disableCache', false);
 ```
 
-Use the apply_filters function to set a logger value to true. This will enable logging for the climatechange data.
+Use the apply_filters function to set a logger value to true. This will enable logging for the greencharts data.
 
 ```php
-apply_filters('climatechange_logger_shouldLog', defined('WP_DEBUG') && true === WP_DEBUG);
+apply_filters('greencharts_logger_shouldLog', defined('WP_DEBUG') && true === WP_DEBUG);
 ```
 
-Use the apply_filters function to set a verbose value to true. This will enable verbose logging for the climatechange data.
+Use the apply_filters function to set a verbose value to true. This will enable verbose logging for the greencharts data.
 
 ```php
-apply_filters('climatechange_logger_shouldBeVerbose', false);
+apply_filters('greencharts_logger_shouldBeVerbose', false);
 ```
 
 Uses the apply_filters function to alter ajax resposes data used by charts. Useful if you need to add more charts.
 
 ```php
-apply_filters('climatechange_ajax_chartsApi',$charts->getChartsDataByType($type), $type);
+apply_filters('greencharts_ajax_chartsApi',$charts->getChartsDataByType($type), $type);
 ```
 
 ### js [docs](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-hooks/)
 
-Remember to use `wp.hooks.addFilter` BEFORE climatechange js load.
+Remember to use `wp.hooks.addFilter` BEFORE greencharts js load.
 
-This code applies a filter to the chartConfig object which is used to create a climatechange_js_chartConfig chart on the canvas. The filter is used to modify the chartConfig object so that it can be used to create a customized chart.
+This code applies a filter to the chartConfig object which is used to create a greencharts_js_chartConfig chart on the canvas. The filter is used to modify the chartConfig object so that it can be used to create a customized chart.
 
 ```js
-globalHooks.applyFilters("climatechange_js_chartConfig", chartConfig, canvas);
+globalHooks.applyFilters("greencharts_js_chartConfig", chartConfig, canvas);
 // usage example:
 wp.hooks.addFilter(
-  "climatechange_js_chartConfig",
+  "greencharts_js_chartConfig",
   "defaultHooks",
   (chartConfig, canvas) => {
     console.log("THEME FILTER", chartConfig, canvas.dataset.type);
@@ -78,19 +78,19 @@ wp.hooks.addFilter(
 );
 ```
 
-This code applies a filter to the debug var that control operations logging. The filter is set to false, meaning that any code related to climatechange_js_debug will not be logged in the browser js console.
+This code applies a filter to the debug var that control operations logging. The filter is set to false, meaning that any code related to greencharts_js_debug will not be logged in the browser js console.
 
 ```js
-globalHooks.applyFilters("climatechange_js_debug", false),
+globalHooks.applyFilters("greencharts_js_debug", false),
   // usage example:
-  wp.hooks.addFilter("climatechange_js_debug", "defaultHooks", () => true);
+  wp.hooks.addFilter("greencharts_js_debug", "defaultHooks", () => true);
 ```
 
-This code applies a filter to the "climatechange_js_errorMessage" string. The filter takes in the string, along with the data and error objects, and returns a modified version of the string. This is useful for customizing error messages based on different scenarios.
+This code applies a filter to the "greencharts_js_errorMessage" string. The filter takes in the string, along with the data and error objects, and returns a modified version of the string. This is useful for customizing error messages based on different scenarios.
 
 ```js
 globalHooks.applyFilters(
-  "climatechange_js_errorMessage",
+  "greencharts_js_errorMessage",
   "Something goes wrong during chart loading. Please retry later",
   data,
   error
@@ -101,7 +101,7 @@ This code applies a filter to the text of a "Reset zoom" button on a canvas elem
 
 ```js
 options.globalHooks.applyFilters(
-  "climatechange_js_resetZoomButtonText",
+  "greencharts_js_resetZoomButtonText",
   "Reset zoom",
   canvas
 );
@@ -111,7 +111,7 @@ This code applies a filter to the text of a "Load chart" button on a canvas elem
 
 ```js
 options.globalHooks.applyFilters(
-  "climatechange_js_loadButtonText",
+  "greencharts_js_loadButtonText",
   "Load chart",
   canvas
 );

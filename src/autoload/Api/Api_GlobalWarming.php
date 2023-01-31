@@ -1,6 +1,6 @@
 <?php
 
-namespace Cyberway_Climatechange\Api;
+namespace Cyberway_Greencharts\Api;
 
 use DateTime;
 

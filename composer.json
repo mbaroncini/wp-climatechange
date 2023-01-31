@@ -1,9 +1,9 @@
 {
-    "name": "cyberway/wp-climatechange",
+    "name": "cyberway/wp-greencharts",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Cyberway_Climatechange\\": "src/autoload/"
+            "Cyberway_Greencharts\\": "src/autoload/"
         }
     },
     "authors": [

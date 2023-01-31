@@ -1,6 +1,6 @@
 @use 'variables' as *;
 
-.climatechange-chart-wrapper {
+.greencharts-chart-wrapper {
 
   display: flex;
   flex-wrap: wrap;
@@ -11,7 +11,7 @@
     width: 100%;
   }
 
-  .climatechange-button {
+  .greencharts-button {
 
     cursor: pointer;
     border: 1px solid $grey;

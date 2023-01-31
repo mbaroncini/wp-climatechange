@@ -11,14 +11,14 @@ type Options = {
 }
 
 const appConfig: Options = {
-  canvasSelector: 'canvas.climatechange-chart',
-  ajaxAction: 'climatechange_charts_api',
+  canvasSelector: 'canvas.greencharts-chart',
+  ajaxAction: 'greencharts_charts_api',
   debug: false,
   globalHooks: window.wp.hooks,
-  ajaxUrl: window.climatechange.ajaxurl
+  ajaxUrl: window.greencharts.ajaxurl
 }
 
-appConfig.debug = Boolean(appConfig.globalHooks.applyFilters('climatechange_js_debug', false))
+appConfig.debug = Boolean(appConfig.globalHooks.applyFilters('greencharts_js_debug', false))
 
 
 export default appConfig;

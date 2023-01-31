@@ -1,6 +1,6 @@
 <?php
 
-namespace Cyberway_Climatechange\Cache;
+namespace Cyberway_Greencharts\Cache;
 
 
 class Transient
@@ -124,6 +124,6 @@ class Transient
 
   protected function isCacheDisabled()
   {
-    return apply_filters('climatechange_transient_disableCache', false);
+    return apply_filters('greencharts_transient_disableCache', false);
   }
 }

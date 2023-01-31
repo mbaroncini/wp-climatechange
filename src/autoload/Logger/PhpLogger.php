@@ -1,6 +1,6 @@
 <?php
 
-namespace Cyberway_Climatechange\Logger;
+namespace Cyberway_Greencharts\Logger;
 
 
 

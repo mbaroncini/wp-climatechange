@@ -1,9 +1,9 @@
 <?php
 
-namespace Cyberway_Climatechange\Api;
+namespace Cyberway_Greencharts\Api;
 
 use WP_Error;
-use Cyberway_Climatechange\Cache\Transient;
+use Cyberway_Greencharts\Cache\Transient;
 
 class Api
 {
@@ -31,7 +31,7 @@ class Api
    * a new Transient object each time.
    *
    * @param [type] $key
-   * @return \Cyberway_Climatechange\Cache\Transient
+   * @return \Cyberway_Greencharts\Cache\Transient
    */
   protected function dataCache($key)
   {
@@ -65,7 +65,7 @@ class Api
         return $response;
       } else {
         $this->logger()->error("Bad GET response from $url");
-        return new WP_Error('climatechange_api_get', "Bad GET response from $url");
+        return new WP_Error('greencharts_api_get', "Bad GET response from $url");
       }
     } else {
       $this->info("$url data IS CACHED");
@@ -116,7 +116,7 @@ class Api
 
   protected function logger()
   {
-    return \climatechange_logger();
+    return \greencharts_logger();
   }
 
   protected function info($message)

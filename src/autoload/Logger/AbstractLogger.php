@@ -1,6 +1,6 @@
 <?php
 
-namespace Cyberway_Climatechange\Logger;
+namespace Cyberway_Greencharts\Logger;
 
 abstract class AbstractLogger implements LoggerInterface
 {
@@ -11,7 +11,7 @@ abstract class AbstractLogger implements LoggerInterface
    */
   protected function shouldLog()
   {
-    return apply_filters('climatechange_logger_shouldLog', defined('WP_DEBUG') && true === WP_DEBUG);
+    return apply_filters('greencharts_logger_shouldLog', defined('WP_DEBUG') && true === WP_DEBUG);
   }
 
   /**
@@ -21,7 +21,7 @@ abstract class AbstractLogger implements LoggerInterface
    */
   protected function shouldBeVerbose()
   {
-    return apply_filters('climatechange_logger_shouldBeVerbose', false);
+    return apply_filters('greencharts_logger_shouldBeVerbose', false);
   }
 
   /**

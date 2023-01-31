@@ -1,21 +1,21 @@
 <?php
 
 
-add_shortcode('climatechange-chart', 'climatechange_shortcode_chart');
-function climatechange_shortcode_chart($atts)
+add_shortcode('greencharts-chart', 'greencharts_shortcode_chart');
+function greencharts_shortcode_chart($atts)
 {
 
   extract(
     shortcode_atts(array(
       'type' => 'co2',
-    ), $atts, 'climatechange-chart')
+    ), $atts, 'greencharts-chart')
   );
 
-  $class = 'climatechange-chart';
+  $class = 'greencharts-chart';
   $id = $class . '-' . strval(rand());
 
-  //wp_enqueue_script('climatechange-chart-loader');
-  wp_enqueue_script('climatechange-chart-loader');
+  //wp_enqueue_script('greencharts-chart-loader');
+  wp_enqueue_script('greencharts-chart-loader');
 
   return "<div class=\"$class-wrapper\"><canvas id=\"$id\" class=\"$class\" data-type=\"$type\"></canvas></div>";
 }

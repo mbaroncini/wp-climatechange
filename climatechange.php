@@ -11,7 +11,7 @@ Requires at least: 5.0
 Requires PHP: ^7.4
 Author: Cyberway
 License: GPLv2 or later
-Text Domain: climatechange
+Text Domain: greencharts
 */
 
 // Make sure we don't expose any info if called directly
