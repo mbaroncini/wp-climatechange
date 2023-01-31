@@ -1,6 +1,6 @@
-# Wordpress greencharts
+# Wordpress Greencharts
 
-This Wordpress plugin allows you to easily add interactive chart shortcodes to your website, using data from the global-warming.org API and the ChartJs library. The plugin has built-in mechanisms such as server cache, lazy load and client cache, which work together to reduce the CO2 emissions caused by internet/hardware usage per chart view.
+This Wordpress plugin allows you to easily add interactive charts to your website, using data from the global-warming.org API and the ChartJs library. The plugin has built-in mechanisms such as server cache, lazy load and client cache, which work together to reduce the CO2 emissions caused by internet/hardware usage per chart view.
 
 ## Installation
 
@@ -11,10 +11,10 @@ This Wordpress plugin allows you to easily add interactive chart shortcodes to y
 
 Once the plugin is installed and configured, you can add chart shortcodes to your pages and posts. The available shortcodes are:
 
-`[greencharts-chart type="temperature"]`: Displays a line chart of global temperature change over time.
-`[greencharts-chart type="co2"]`: Displays a line chart of CO2 emissions by country.
-`[greencharts-chart type="methane"]`: Displays a line chart of global methane gas emissions.
-`[greencharts-chart type="oceanwarming"]`: Displays a line chart of global ocean warming.
+- `[greencharts-chart type="temperature"]`: Displays a line chart of global temperature change over time.
+- `[greencharts-chart type="co2"]`: Displays a line chart of CO2 emissions by country.
+- `[greencharts-chart type="methane"]`: Displays a line chart of global methane gas emissions.
+- `[greencharts-chart type="oceanwarming"]`: Displays a line chart of global ocean warming.
 
 You can customize the appearance of the charts using the ChartJs library's options and callbacks using wordpress js hooks. Visit [ChartJs documentation](https://www.chartjs.org/docs/latest/) for more information.
 
