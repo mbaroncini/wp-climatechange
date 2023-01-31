@@ -4,7 +4,7 @@
  * @package GreenCharts
  */
 /*
-Plugin Name: Wp greencharts
+Plugin Name: Greencharts
 Description: Display https://global-warming.org/ data
 Version: 0.1.0
 Requires at least: 5.0
