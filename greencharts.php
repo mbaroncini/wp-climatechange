@@ -5,7 +5,7 @@
  */
 /*
 Plugin Name: Greencharts
-Description: Display https://global-warming.org/ data
+Description: Another WordPress plugin with charts but with love for the earth in mind
 Version: 0.1.0
 Requires at least: 5.0
 Requires PHP: ^7.4
