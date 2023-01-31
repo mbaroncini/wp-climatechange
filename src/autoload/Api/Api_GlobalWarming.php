@@ -7,11 +7,20 @@ use DateTime;
 class Api_GlobalWarming extends Api
 {
 
+  public $config =  [
+    'co2' => 'https://global-warming.org/api/co2-api',
+    'temperature' => 'https://global-warming.org/api/temperature-api',
+    'methane' => 'https://global-warming.org/api/methane-api',
+    'oceanwarming' => 'https://global-warming.org/api/ocean-warming-api'
+  ];
+
+
+
 
   public function getCo2()
   {
 
-    $url = 'https://global-warming.org/api/co2-api';
+    $url = $this->config['co2'];
     $data = [];
     $response = $this->get($url);
     if (isset($response['body'])) {
@@ -43,7 +52,7 @@ class Api_GlobalWarming extends Api
   public function getTemperature()
   {
 
-    $url = 'https://global-warming.org/api/temperature-api';
+    $url = $this->config['temperature'];
     $data = [];
 
     $response = $this->get($url);
@@ -63,7 +72,7 @@ class Api_GlobalWarming extends Api
   public function getMethane()
   {
 
-    $url = 'https://global-warming.org/api/methane-api';
+    $url = $this->config['methane'];
     $data = [];
     $response = $this->get($url);
     if (isset($response['body'])) {
@@ -89,7 +98,7 @@ class Api_GlobalWarming extends Api
   public function getOceanWarming()
   {
 
-    $url = 'https://global-warming.org/api/ocean-warming-api';
+    $url = $this->config['oceanwarming'];
     $data = [];
     $response = $this->get($url);
     if (isset($response['body'])) {

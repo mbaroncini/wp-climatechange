@@ -1,25 +1,27 @@
-import axios from 'axios'
+
 import * as chartsConfig from './chartsConfig'
 import { Chart } from 'chart.js/auto';
 import zoomPlugin from 'chartjs-plugin-zoom';
 import options from './store'
 import log from './logger'
+import { post } from './http'
+
 
 Chart.register(zoomPlugin);
 
-
 export const loadChart = (canvas: HTMLCanvasElement) => {
 
-
   const chartType: string = canvas.dataset.type;
-  const loadChartButton = document.createElement('button');
-  loadChartButton.innerText = 'Load chart';
-  const resetZoomButton = document.createElement('button');
-  resetZoomButton.classList.add('climatechange-chart-reset-zoom')
-  resetZoomButton.innerText = 'Reset zoom'
+  const loadChartButton = document.createElement('div');
+  loadChartButton.classList.add('climatechange-button')
+  const loadButtonText: any = options.globalHooks.applyFilters('climatechange_js_loadButtonText', 'Load chart', canvas)
+  loadChartButton.innerText = loadButtonText;
+  const resetZoomButton = document.createElement('div');
+  resetZoomButton.classList.add('climatechange-chart-reset-zoom', 'climatechange-button')
+  const resetButtonText: any = options.globalHooks.applyFilters('climatechange_js_resetZoomButtonText', 'Reset zoom', canvas)
+  resetZoomButton.innerText = resetButtonText
 
   canvas.parentElement.append(loadChartButton)
-
 
   //EVENTS HANDLER
   const getChartData = function (evt: Event) {
@@ -32,34 +34,48 @@ export const loadChart = (canvas: HTMLCanvasElement) => {
     params.append('action', options.ajaxAction);
     params.append('type', chartType);
 
-    //ajax POST request
-    axios.post(window.climatechange.ajaxurl, params)
-      .then(function (response) {
+    post(handleChartData, params)
 
-        const chartConfig: any = chartsConfig[`${chartType}Config` as keyof typeof chartsConfig](response.data)
-        log('AJAX POST RESPONSE:', response)
-        log('CANVAS FOR CHART:', canvas)
-        log('COMPUTED CHART CONFIG:', chartConfig)
+  }
 
-        const myChart = new Chart(
-          canvas,
-          chartConfig
-        );
-        log('CHARTJS OBJECT:', myChart)
 
-        resetZoomButton.addEventListener('click', (evt) => { myChart.resetZoom() });
+  const handleChartData = (data: any, error?: any) => {
 
-        loadChartButton.remove()
-        //loadChartButton.innerText = 'Re-load';
+    log('CANVAS FOR CHART:', canvas)
 
-        canvas.parentElement.append(resetZoomButton)
+    loadChartButton.remove()
+    //loadChartButton.innerText = 'Re-load';
 
-        log('---------------------------------- CHART LOADED ----------------------------------')
+    if (typeof error == 'object') {
+      const errorMessage: any = options.globalHooks.applyFilters('climatechange_js_errorMessage', "Something goes wrong during chart loading. Please retry later", data, error)
+      canvas.parentElement.innerHTML = errorMessage
+    }
+    else {
+      let chartConfig: any = chartsConfig[`${chartType}Config` as keyof typeof chartsConfig](data)
 
-      })
-      .catch((error) => {
-        console.warn(error)
-      })
+      chartConfig = options.globalHooks.applyFilters('climatechange_js_chartConfig', chartConfig, canvas)
+
+      log('COMPUTED CHART CONFIG:', chartConfig)
+
+      const myChart = new Chart(
+        canvas,
+        chartConfig
+      );
+      log('CHARTJS OBJECT:', myChart)
+
+      resetZoomButton.addEventListener('click', (evt) => { myChart.resetZoom() });
+
+      canvas.parentElement.append(resetZoomButton)
+
+      log('APPEND CREATED CHART ON WINDOW OBJECT, TRY ON CONSOLE: "window.climatechange.charts"')
+      window.climatechange.charts.push(myChart)
+    }
+
+
+
+
+    log('---------------------------------- CHART LOADED ----------------------------------')
+
   }
 
 

@@ -15,7 +15,7 @@ function climatechange_shortcode_chart($atts)
   $id = $class . '-' . strval(rand());
 
   //wp_enqueue_script('climatechange-chart-loader');
-  wp_enqueue_script('climatechange-chart-loader2');
+  wp_enqueue_script('climatechange-chart-loader');
 
   return "<div class=\"$class-wrapper\"><canvas id=\"$id\" class=\"$class\" data-type=\"$type\"></canvas></div>";
 }

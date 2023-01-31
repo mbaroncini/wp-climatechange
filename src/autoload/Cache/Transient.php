@@ -112,8 +112,13 @@ class Transient
    */
   public function getLifeSpanLeft()
   {
-    $expires = (int) get_option('_transient_timeout_' . $this->getKey(), 0);
+    $expires = $this->getDbLifeSpan();
     return $expires - time();
+  }
+
+  public function getDbLifeSpan()
+  {
+    return (int) get_option('_transient_timeout_' . $this->getKey(), 0);
   }
 
 

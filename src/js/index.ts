@@ -1,15 +1,9 @@
-
-
 import appConfig from './store'
 import { loadChart } from './chartLoader';
 import log from './logger'
 
+import "../scss/general.scss";
 
-// const globalHooks = createHooks();
-
-
-
-// log('WORDPRESS JS HOOKS', globalHooks)
 log('APP CONFIG', appConfig)
 
 const canvas = document.querySelectorAll(appConfig.canvasSelector);

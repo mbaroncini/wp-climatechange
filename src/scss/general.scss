@@ -1,0 +1,27 @@
+@use 'variables' as *;
+
+.climatechange-chart-wrapper {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  canvas {
+    height: 0;
+    width: 100%;
+  }
+
+  .climatechange-button {
+
+    cursor: pointer;
+    border: 1px solid $grey;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 0.7em;
+    margin-top: 10px;
+
+    &:hover {
+      background-color: $grey;
+    }
+  }
+}

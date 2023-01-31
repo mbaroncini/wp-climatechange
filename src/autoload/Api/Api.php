@@ -8,6 +8,8 @@ use Cyberway_Climatechange\Cache\Transient;
 class Api
 {
 
+  public $config = [];
+
   /**
    * Undocumented function
    *
@@ -16,7 +18,7 @@ class Api
    * @param [type] $url
    * @return Transient
    */
-  protected function requestCache($url)
+  public function requestCache($url)
   {
     return $this->dataCache($url);
   }
