@@ -58,7 +58,7 @@ Uses the apply_filters function to alter ajax resposes data used by charts. Usef
 apply_filters('climatechange_ajax_chartsApi',$charts->getChartsDataByType($type), $type);
 ```
 
-### js [doc](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-hooks/)
+### js [docs](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-hooks/)
 
 Remember to use `wp.hooks.addFilter` BEFORE climatechange js load.
 
