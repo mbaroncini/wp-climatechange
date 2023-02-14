@@ -6,7 +6,7 @@
 /*
 Plugin Name: Greencharts
 Description: Another WordPress plugin with charts but with love for the earth in mind
-Version: 1.0.0
+Version: 1.0.1
 Requires at least: 5.0
 Requires PHP: ^7.4
 Author: Cyberway

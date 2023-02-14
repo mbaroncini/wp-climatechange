@@ -3,7 +3,7 @@ Contributors: mbaroncini
 Tags: chartjs, charts, green
 Requires at least: 4.7
 Tested up to: 6.1.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -25,8 +25,12 @@ This Wordpress plugin allows you to easily add interactive charts to your websit
 
 == Changelog ==
 
-= 0.1 =
-The first beta version
+- 1.0.1
+  Updated README
+- 1.0.0
+  The first stable version
+- 0.1
+  The first beta version
 
 == Installation ==
 
@@ -58,46 +62,35 @@ This plugin is provided "as is" without warranty of any kind, either express or 
 
 == Plugin hooks ==
 
-= php [docs](https://developer.wordpress.org/plugins/hooks/)
+= php [docs](https://developer.wordpress.org/plugins/hooks/) =
 
 Use the apply_filters function to set a transient value to false. This will disable caching for the greencharts data.
 
-```php
-apply_filters('greencharts_transient_disableCache', false);
-```
+`apply_filters('greencharts_transient_disableCache', false);`
 
 Use the apply_filters function to set the lifespan of transient. The filter can be used to modify the lifespan of the transient before it is set. The transient is used to cache remote API requests, default transient is 1 month. The lifespan should be the number of seconds, see [$expiration](https://developer.wordpress.org/reference/functions/set_transient/#parameters) parameter of wordpress `set_transient` function
 
-```php
-apply_filters('greencharts_transient_lifespan', $this->lifespan, $this);
-```
+`apply_filters('greencharts_transient_lifespan', $this->lifespan, $this);`
 
 Use the apply_filters function to set a logger value to true. This will enable logging for the greencharts data.
 
-```php
-apply_filters('greencharts_logger_shouldLog', defined('WP_DEBUG') && true === WP_DEBUG);
-```
+`apply_filters('greencharts_logger_shouldLog', defined('WP_DEBUG') && true === WP_DEBUG);`
 
 Use the apply_filters function to set a verbose value to true. This will enable verbose logging for the greencharts data.
 
-```php
-apply_filters('greencharts_logger_shouldBeVerbose', false);
-```
+`apply_filters('greencharts_logger_shouldBeVerbose', false);`
 
 Uses the apply_filters function to alter ajax resposes data used by charts. Useful if you need to add more charts.
 
-```php
-apply_filters('greencharts_ajax_chartsApi',$charts->getChartsDataByType($type), $type);
-```
+`apply_filters('greencharts_ajax_chartsApi',$charts->getChartsDataByType($type), $type);`
 
-= js [docs](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-hooks/)
+= js [docs](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-hooks/) =
 
 Remember to use `wp.hooks.addFilter` BEFORE greencharts js load.
 
 This code applies a filter to the chartConfig object which is used to create a greencharts_js_chartConfig chart on the canvas. The filter is used to modify the chartConfig object so that it can be used to create a customized chart.
 
-```js
-globalHooks.applyFilters("greencharts_js_chartConfig", chartConfig, canvas);
+`globalHooks.applyFilters("greencharts_js_chartConfig", chartConfig, canvas);
 // usage example:
 wp.hooks.addFilter(
   "greencharts_js_chartConfig",
@@ -107,44 +100,40 @@ wp.hooks.addFilter(
     chartConfig.data.datasets[0].backgroundColor = "blue";
     return chartConfig;
   }
-);
-```
+);`
 
 This code applies a filter to the debug var that control operations logging. The filter is set to false, meaning that any code related to greencharts_js_debug will not be logged in the browser js console.
 
-```js
-globalHooks.applyFilters("greencharts_js_debug", false),
+`globalHooks.applyFilters("greencharts_js_debug", false),
   // usage example:
-  wp.hooks.addFilter("greencharts_js_debug", "defaultHooks", () => true);
-```
+  wp.hooks.addFilter("greencharts_js_debug", "defaultHooks", () => true);`
 
 This code applies a filter to the "greencharts_js_errorMessage" string. The filter takes in the string, along with the data and error objects, and returns a modified version of the string. This is useful for customizing error messages based on different scenarios.
 
-```js
-globalHooks.applyFilters(
+`globalHooks.applyFilters(
   "greencharts_js_errorMessage",
   "Something goes wrong during chart loading. Please retry later",
   data,
   error
-);
-```
+);`
 
 This code applies a filter to the text of a "Reset zoom" button on a canvas element. This allows developers to customize the text of the button.
 
-```js
-options.globalHooks.applyFilters(
+`options.globalHooks.applyFilters(
   "greencharts_js_resetZoomButtonText",
   "Reset zoom",
   canvas
-);
-```
+);`
 
 This code applies a filter to the text of a "Load chart" button on a canvas element. This allows developers to customize the text of the button.
 
-```js
-options.globalHooks.applyFilters(
+`options.globalHooks.applyFilters(
   "greencharts_js_loadButtonText",
   "Load chart",
   canvas
-);
-```
+);`
+
+== Assets attribution ==
+
+- Image by (rawpixel.com)[https://www.freepik.com/free-vector/social-media-analysis-design-graphs_16323246.htm#query=minimal%20charts&position=3&from_view=search&track=ais] on Freepik
+- Image by (Freepik)[https://www.freepik.com/free-vector/green-energy-buildings_713297.htm#query=eco%20green&position=31&from_view=search&track=ais]
